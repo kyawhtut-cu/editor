@@ -66,7 +66,7 @@ function openFile(eID) {
 }
 
 $('input[type=file]').change(function(e) {
-	$.get(this.files[0], function(data) {
+	$.get(URL.createObjectURL(this.files[0]), function(data) {
 		editor.setValue(data);
 	}, 'text');
 });
