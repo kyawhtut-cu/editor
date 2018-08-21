@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Ace Editor Example</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-slider.min.css">
+		<link rel="stylesheet" href="css/mystyle.css">
+		<link rel="stylesheet" href="css/autocomplete.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="toolbar">
+				<div class="toolbar-left">
+					<button type="button" class="btn btn-info btn-sm" title="Delete" onclick="openFile('fileChoose');">
+						<span class="glyphicon glyphicon-file" style="margin-right: 5px;"></span>Test.html
+					</button>
+					<input type="file" id="fileChoose" style="display: none;">
+				</div>
+				<div class="toolbar-right">
+					<div class="btn-group">
+						<button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Font Size <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li class="dropdown-header">Font Size</li>
+							<li style="padding-left: 15px; padding-right: 15px;">
+								<input id="fontSize" data-slider-id='fontSizeSlider' type="text" data-slider-value="18" data-slider-min="12" data-slider-max="72" data-slider-step="1" data-slider-ticks-snap-bounds="30"/>
+							</li>
+						</ul>
+					</div>
+					<button type="button" class="btn btn-primary btn-sm" title="Theme" onclick="themeDialog();">
+						<span class="glyphicon glyphicon-ok" style="margin-right: 5px;"></span>Theme
+					</button>
+					<button type="button" class="btn btn-primary btn-sm" title="File extension" onclick="fileExtension();">
+						<span class="glyphicon glyphicon-file" style="margin-right: 5px;"></span>File extension
+					</button>
+					<button type="button" class="btn btn-outline-danger btn-sm" title="Delete" onclick="deleteFile();">
+						<span class="glyphicon glyphicon-remove" style="margin-right: 5px;"></span>Delete
+					</button>
+					<button type="button" class="btn btn-outline-primary btn-sm" title="Cancel">
+						<span class="glyphicon glyphicon-ban-circle" style="margin-right: 5px;"></span>Cancel
+					</button>
+					<button type="button" class="btn btn-outline-success btn-sm" title="Save" onclick="save();">
+						<span class="glyphicon glyphicon-ok" style="margin-right: 5px;"></span>Save
+					</button>
+				</div>
+			</div>
+			<div id="myEditor"></div>
+		</div>
+		<div id="themeDialog"></div>
+		<script src="jquery/jquery.js"></script>
+		<script src="jquery/bootstrap.min.js"></script>
+		<script src="jquery/bootstrap-slider.min.js"></script>
+		<script src="jquery/bootbox.min.js"></script>
+		<script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="jquery/ace-editor.js"></script>
+		<script type="text/javascript" src="jquery/file-format.js"></script>
+	</body>
+</html>
