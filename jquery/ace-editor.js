@@ -1,6 +1,5 @@
 var editor = ace.edit("myEditor");
 var fontSize = 18;
-var selectedFile = new FormData();
 
 editor.setTheme("ace/theme/dracula");
 editor.session.setMode("ace/mode/html");
@@ -50,8 +49,7 @@ function themeDialog() {
 }
 
 function save() {
-	// console.log(editor.getValue());
-	save_content_to_file(editor.getValue(), selectedFile);
+	console.log(editor.getValue());
 }
 
 function deleteFile() {
@@ -68,48 +66,10 @@ function openFile(eID) {
 }
 
 $('input[type=file]').change(function(e) {
-	// selectedFile = new FormData();
-	// console.log(document.getElementById("fileChoose").value);
-	// selectedFile.append("file", e.target.files[0]);
-	// $.ajax({
-	// 	url : "upload.php",
-	// 	method : "POST",
-	// 	data : selectedFile,
-	// 	contentType : false,
-	// 	cache : false,
-	// 	processData : false,
-	// 	beforeSend : function(){
-	// 		console.log("File send to backend");
-	// 	},   
-	// 	success : function(data) {
-	// 		editor.setValue(data);
-	// 	}
-	// });
-	// $.get(this.files[0], function(data) {
-	// 	editor.setValue(data);
-	// }, 'text');
+	$.get(this.files[0], function(data) {
+		editor.setValue(data);
+	}, 'text');
 });
-
-function save_content_to_file(content, filename){
-	var dlg = false;
-	with(document){
-		ir=createElement('iframe');
-		ir.id='ifr';
-		ir.location='about.blank';
-		ir.style.display='none';
-		body.appendChild(ir);
-		with(getElementById('ifr').contentWindow.document){
-			open("text/plain", "replace");
-			charset = "utf-8";
-			write(content);
-			close();
-			document.charset = "utf-8";
-			dlg = execCommand('SaveAs', false, filename);
-		}
-		body.removeChild(ir);
-	}
-	return dlg;
-}
 
 editor.commands.addCommand({
 	name: 'goToLine',
